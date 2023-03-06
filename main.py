@@ -22,6 +22,7 @@ for i in range(3):
 with open(file='./data/curated_data.csv', mode='w') as csv_file:
     csv_writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
+    csv_writer.writerow(['sales', 'date', 'region'])
     csv_writer.writerows(all_data)
 
 
