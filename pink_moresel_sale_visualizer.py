@@ -25,7 +25,7 @@ app.layout = html.Div(children=[
     html.H1(
         children="Soul Food's Pink Morsel Sale Visualization",
         style={
-            "fontSize" : 32,
+            "fontSize": 32,
             "fontFamily": "Arial",
             "textAlign": 'center'
         }),
@@ -55,7 +55,6 @@ app.layout = html.Div(children=[
 )
 def update_output_figure(region_name):
     return figures[region_name]
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)
