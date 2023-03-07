@@ -1,6 +1,8 @@
 import csv
 
-all_data = []
+INPUT_CSV = './data/daily_sales_data_{}.csv'
+OUTPUT_CSV = './curated_data.csv'
+csv_data = []
 
 
 def curate_data(store_array, reader):
@@ -16,15 +18,13 @@ def curate_data(store_array, reader):
 
 
 for i in range(3):
-    with open(f'./data/daily_sales_data_{i}.csv') as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
+    with open(INPUT_CSV.format(i)) as csv_file:
+        curate_data(csv_data, csv.reader(csv_file, delimiter=','))
 
-        curate_data(all_data, csv_reader)
-
-with open(file='./data/curated_data.csv', mode='w') as csv_file:
+with open(file=OUTPUT_CSV, mode='w') as csv_file:
     csv_writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
     csv_writer.writerow(['sales', 'date', 'region'])
-    csv_writer.writerows(all_data)
+    csv_writer.writerows(csv_data)
 
 
