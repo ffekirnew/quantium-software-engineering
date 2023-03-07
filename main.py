@@ -2,8 +2,9 @@ import csv
 
 all_data = []
 
-def curate_data(store_array, csv_reader):
-    for row in csv_reader:
+
+def curate_data(store_array, reader):
+    for row in reader:
         if row[0] == "pink morsel":
             price = float(row[1].replace("$", ""))
             amount = int(row[2])
@@ -12,6 +13,7 @@ def curate_data(store_array, csv_reader):
 
             sales = price * amount
             store_array.append([sales, date, region])
+
 
 for i in range(3):
     with open(f'./data/daily_sales_data_{i}.csv') as csv_file:
